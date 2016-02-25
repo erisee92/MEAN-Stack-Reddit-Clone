@@ -7,6 +7,7 @@ describe('API Test', function() {
     var username = 'bob99';
     var password = 'top_secret';
     var post_id ='';
+    var comment_id ='';
     var token='';
 
     describe('Users', function(){
@@ -198,7 +199,30 @@ describe('API Test', function() {
             done();
             });
         });
+
+        it('should upvote comment', function(done) {
+            var auth = "Bearer "+token;
+            request(url)
+                .put('/posts/'+post_id+'/comments/'+comment_id+'/upvote')
+                .set('Authorization', auth)
+                .expect('Content-Type', /json/)
+                .expect(200) //Status code
+                // end handles the response
+                .end(function(err, res) {
+                    if (err) {
+                        throw err;
+                    }
+                    // Should.js fluent syntax applied
+                    res.body._id.should.equal(comment_id);
+                    res.body.author.should.equal(username);
+                    res.body.body.should.equal('test');
+                    res.body.upvotes.should.equal(1);
+                    done();
+                });
+        });
+
     });
+
 
 
 });

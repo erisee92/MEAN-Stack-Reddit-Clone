@@ -1,6 +1,13 @@
 language: node_js
 node_js:
-  - "5.6"
-  - "4.1"
+- '5.6'
 before_script:
-  - nohup node ./bin/www &
+- nohup node ./bin/www &
+deploy:
+  provider: heroku
+  api_key:
+    secure: cb2dyT8vmSlZJgDpFeGfhAp53hFnJi17CbU8055JFkh39sUOXUkt+SvuWE7Ir6e79aiJY4wZeFFwkEwV3woyXe0uGTDPlPO5sWL18Mdfrj/zAHQgMmbiIxsxUjfT0iMMTpDPnJQ4RWFYm+eJMbq8ArR/MSpKIpe2A/1dWRRWgvKmoA6Pk+qt61maL/5a8A/fJQQg3SFagdeQO4ZciSPpaXdt271Qsh762fZP2Cue+hKTOpjguPiSK0xlO+H0X7KigDPJDgsD9qiBOIWqh2m0tS15sOdSbAOb5E6mONrmXs6xEwWLoNOLGa7viJikl0bzMn37Qo+pamb62YL/ZgAGMyjIYXACrmyOwZaCFa+QBCKYUNFwDE+9oLQOMKitdaBbwdnuLZNI4ldmOMWPKhuVXQSx7oJ8O9Jx1sZPl/lDjHKOvPWl1LU8RHKpAu2LXPrDlN8n8Lh5lDFw1XNNljfD819euwgXtYKGAe9zudj3eCiA5YZQxlHFW/fJm0bOfWISTc/X8LdAHRr+fZBKbTGKfJUVT6+sCskqKczcFo9qTfbS3bFpy/aH6siwkYykx3/cKiUQHv/nEep5Zsk0zqZpnEPpiBbVB96Vnif/177kew2f425xcSt9uu3XzUbNyPBTDwUp9pHAqk7kcKalYO1V6HiA2iQ4YeMVG9toLrgFjdo=
+  app: hidden-fjord-22070
+  on:
+    repo: erisee92/MEAN-Stack-Reddit-Clone
+    branch: NodeJS
